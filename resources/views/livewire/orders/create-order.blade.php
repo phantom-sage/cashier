@@ -5,17 +5,17 @@
             <div class="bg-gradient-to-r from-green-600 to-blue-700 rounded-2xl p-8">
                 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                     <div>
-                        <h1 class="text-3xl font-bold mb-2">Cashier System</h1>
-                        <p class="text-green-100 text-lg">Create new orders and manage sales</p>
+                        <h1 class="text-3xl font-bold mb-2">{{ __('app.cashier_system') }}</h1>
+                        <p class="text-green-100 text-lg">{{ __('Create new orders and manage sales') }}</p>
                     </div>
                     <div class="mt-6 lg:mt-0 flex space-x-4">
                         <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
                             <div class="text-2xl font-bold">{{ $this->getTotalItems() }}</div>
-                            <div class="text-green-100 text-sm">Items in Cart</div>
+                            <div class="text-green-100 text-sm">{{ __('app.items_in_cart') }}</div>
                         </div>
                         <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
                             <div class="text-2xl font-bold">{{ $this->getFormattedTotal() }}</div>
-                            <div class="text-green-100 text-sm">Total Amount</div>
+                            <div class="text-green-100 text-sm">{{ __('app.total_amount') }}</div>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                     <input 
                         wire:model.live.debounce.300ms="search" 
                         type="text" 
-                        placeholder="Search products..." 
+                        placeholder="{{ __('app.search_products') }}" 
                         class="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-gray-600 rounded-xl leading-5 bg-white dark:bg-gray-800 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-transparent sm:text-sm text-gray-900 dark:text-white shadow-sm"
                     />
                     
@@ -89,7 +89,7 @@
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
-                        <span class="text-sm font-medium">Searching...</span>
+                        <span class="text-sm font-medium">{{ __('app.searching') }}</span>
                     </div>
                 </div>
 
@@ -138,7 +138,7 @@
                                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                                         </svg>
-                                        Add to Cart
+                                        {{ __('app.add_to_cart') }}
                                     </button>
                                 </div>
                             </div>
@@ -160,20 +160,20 @@
                             </div>
                             
                             @if($search)
-                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">No products found</h3>
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{{ __('app.no_products_found') }}</h3>
                                 <p class="text-gray-500 dark:text-gray-400 mb-4">
-                                    No products match "<strong>{{ $search }}</strong>". Try different search terms.
+                                    {{ __('app.no_products_match') }} "<strong>{{ $search }}</strong>". {{ __('app.try_different_search') }}
                                 </p>
                                 <button 
                                     wire:click="$set('search', '')"
                                     class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-200"
                                 >
-                                    Clear Search
+                                    {{ __('app.clear_search') }}
                                 </button>
                             @else
-                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">No products available</h3>
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{{ __('app.no_products') }}</h3>
                                 <p class="text-gray-500 dark:text-gray-400">
-                                    Add some products to start creating orders.
+                                    {{ __('Add some products to start creating orders.') }}
                                 </p>
                             @endif
                         </div>
@@ -186,13 +186,13 @@
         <div class="space-y-6">
             <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 sticky top-6">
                 <div class="flex items-center justify-between mb-6">
-                    <h2 class="text-xl font-bold text-gray-900 dark:text-white">Cart</h2>
+                    <h2 class="text-xl font-bold text-gray-900 dark:text-white">{{ __('app.cart') }}</h2>
                     @if(!empty($cart))
                         <button 
                             wire:click="clearCart"
                             class="text-sm text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-medium"
                         >
-                            Clear All
+                            {{ __('app.clear_cart') }}
                         </button>
                     @endif
                 </div>
@@ -205,8 +205,8 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8m-8 0a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z"></path>
                             </svg>
                         </div>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm">Your cart is empty</p>
-                        <p class="text-gray-400 dark:text-gray-500 text-xs mt-1">Add products to get started</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm">{{ __('app.cart_empty') }}</p>
+                        <p class="text-gray-400 dark:text-gray-500 text-xs mt-1">{{ __('app.add_products_to_start') }}</p>
                     </div>
                 @else
                     <!-- Cart Items -->
@@ -229,7 +229,7 @@
                                 <!-- Product Info -->
                                 <div class="flex-1 min-w-0">
                                     <p class="text-sm font-medium text-gray-900 dark:text-white truncate">{{ $item['product']->name }}</p>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">${{ number_format($item['unit_price'], 2) }} each</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">${{ number_format($item['unit_price'], 2) }} {{ __('app.each') }}</p>
                                 </div>
 
                                 <!-- Quantity Controls -->
@@ -271,11 +271,11 @@
                     <!-- Cart Summary -->
                     <div class="border-t border-gray-200 dark:border-gray-700 pt-4 space-y-3">
                         <div class="flex justify-between text-sm">
-                            <span class="text-gray-600 dark:text-gray-400">Items ({{ $this->getTotalItems() }})</span>
+                            <span class="text-gray-600 dark:text-gray-400">{{ __('app.items') }} ({{ $this->getTotalItems() }})</span>
                             <span class="text-gray-900 dark:text-white font-medium">{{ $this->getFormattedTotal() }}</span>
                         </div>
                         <div class="flex justify-between text-lg font-bold">
-                            <span class="text-gray-900 dark:text-white">Total</span>
+                            <span class="text-gray-900 dark:text-white">{{ __('app.total') }}</span>
                             <span class="text-green-600 dark:text-green-400">{{ $this->getFormattedTotal() }}</span>
                         </div>
                     </div>
@@ -288,7 +288,7 @@
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
                         </svg>
-                        Checkout
+                        {{ __('app.checkout') }}
                     </button>
                 @endif
             </div>

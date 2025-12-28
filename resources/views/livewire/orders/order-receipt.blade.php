@@ -10,7 +10,7 @@
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                             </svg>
-                            Back to Cashier
+                            {{ __('app.back_to_cashier') }}
                         </a>
                     </div>
                     
@@ -21,7 +21,7 @@
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
                             </svg>
-                            Print Receipt
+                            {{ __('app.print_receipt') }}
                         </button>
                         
                         <a href="{{ route('orders.create') }}" 
@@ -29,13 +29,13 @@
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                             </svg>
-                            New Order
+                            {{ __('app.new_order') }}
                         </a>
                     </div>
                 </div>
                 <div class="mt-4 print:mt-0">
-                    <h1 class="text-3xl font-bold text-gray-900 dark:text-white print:text-2xl print:text-center">Order Receipt</h1>
-                    <p class="text-gray-600 dark:text-gray-400 mt-2 print:text-center print:text-sm">Order completed successfully</p>
+                    <h1 class="text-3xl font-bold text-gray-900 dark:text-white print:text-2xl print:text-center">{{ __('app.order_receipt') }}</h1>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2 print:text-center print:text-sm">{{ __('app.order_completed') }}</p>
                 </div>
             </div>
 
@@ -66,7 +66,7 @@
                     </svg>
                 </div>
                 <h2 class="text-2xl font-bold text-gray-900 dark:text-white print:text-lg">{{ config('app.name', 'ProductHub') }}</h2>
-                <p class="text-gray-600 dark:text-gray-400 mt-1 print:text-sm">Thank you for your purchase!</p>
+                <p class="text-gray-600 dark:text-gray-400 mt-1 print:text-sm">{{ __('app.thank_you') }}</p>
             </div>
         </div>
 
@@ -75,22 +75,22 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 print:grid-cols-2 print:gap-4 print:mb-4">
                 <!-- Order Information -->
                 <div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 print:text-base print:mb-2">Order Information</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 print:text-base print:mb-2">{{ __('app.order_information') }}</h3>
                     <dl class="space-y-2 print:space-y-1">
                         <div class="flex justify-between print:text-sm">
-                            <dt class="text-gray-600 dark:text-gray-400">Order Number:</dt>
+                            <dt class="text-gray-600 dark:text-gray-400">{{ __('app.order_number') }}:</dt>
                             <dd class="text-gray-900 dark:text-white font-medium">{{ $order->order_number }}</dd>
                         </div>
                         <div class="flex justify-between print:text-sm">
-                            <dt class="text-gray-600 dark:text-gray-400">Date:</dt>
+                            <dt class="text-gray-600 dark:text-gray-400">{{ __('app.order_date') }}:</dt>
                             <dd class="text-gray-900 dark:text-white">{{ $order->created_at->format('M j, Y g:i A') }}</dd>
                         </div>
                         <div class="flex justify-between print:text-sm">
-                            <dt class="text-gray-600 dark:text-gray-400">Cashier:</dt>
+                            <dt class="text-gray-600 dark:text-gray-400">{{ __('app.cashier_name') }}:</dt>
                             <dd class="text-gray-900 dark:text-white">{{ $order->cashier_name }}</dd>
                         </div>
                         <div class="flex justify-between print:text-sm">
-                            <dt class="text-gray-600 dark:text-gray-400">Total Items:</dt>
+                            <dt class="text-gray-600 dark:text-gray-400">{{ __('app.total_items') }}:</dt>
                             <dd class="text-gray-900 dark:text-white">{{ $order->total_items }}</dd>
                         </div>
                     </dl>
@@ -98,29 +98,29 @@
 
                 <!-- Payment Summary -->
                 <div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 print:text-base print:mb-2">Payment Summary</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 print:text-base print:mb-2">{{ __('app.payment_summary') }}</h3>
                     <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 print:bg-gray-100 print:p-2">
                         <div class="flex justify-between items-center">
-                            <span class="text-lg font-semibold text-gray-900 dark:text-white print:text-base">Total Amount:</span>
+                            <span class="text-lg font-semibold text-gray-900 dark:text-white print:text-base">{{ __('app.total_amount') }}:</span>
                             <span class="text-2xl font-bold text-green-600 dark:text-green-400 print:text-lg">{{ $order->formatted_total }}</span>
                         </div>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2 print:text-xs print:mt-1">Payment Method: Cash</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2 print:text-xs print:mt-1">{{ __('app.payment_method') }}: {{ __('app.cash') }}</p>
                     </div>
                 </div>
             </div>
 
             <!-- Order Items -->
             <div class="border-t border-gray-200 dark:border-gray-700 pt-8 print:pt-4">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-6 print:text-base print:mb-3">Order Items</h3>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-6 print:text-base print:mb-3">{{ __('app.order_items') }}</h3>
                 
                 <div class="overflow-x-auto">
                     <table class="w-full">
                         <thead>
                             <tr class="border-b border-gray-200 dark:border-gray-700">
-                                <th class="text-left py-3 text-sm font-medium text-gray-600 dark:text-gray-400 print:py-1 print:text-xs">Product</th>
-                                <th class="text-center py-3 text-sm font-medium text-gray-600 dark:text-gray-400 print:py-1 print:text-xs">Qty</th>
-                                <th class="text-right py-3 text-sm font-medium text-gray-600 dark:text-gray-400 print:py-1 print:text-xs">Unit Price</th>
-                                <th class="text-right py-3 text-sm font-medium text-gray-600 dark:text-gray-400 print:py-1 print:text-xs">Subtotal</th>
+                                <th class="text-left py-3 text-sm font-medium text-gray-600 dark:text-gray-400 print:py-1 print:text-xs">{{ __('app.product') }}</th>
+                                <th class="text-center py-3 text-sm font-medium text-gray-600 dark:text-gray-400 print:py-1 print:text-xs">{{ __('app.qty') }}</th>
+                                <th class="text-right py-3 text-sm font-medium text-gray-600 dark:text-gray-400 print:py-1 print:text-xs">{{ __('app.unit_price') }}</th>
+                                <th class="text-right py-3 text-sm font-medium text-gray-600 dark:text-gray-400 print:py-1 print:text-xs">{{ __('app.subtotal') }}</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -149,7 +149,7 @@
                         </tbody>
                         <tfoot>
                             <tr class="border-t-2 border-gray-300 dark:border-gray-600">
-                                <td colspan="3" class="py-4 text-right text-lg font-semibold text-gray-900 dark:text-white print:py-2 print:text-base">Total:</td>
+                                <td colspan="3" class="py-4 text-right text-lg font-semibold text-gray-900 dark:text-white print:py-2 print:text-base">{{ __('app.total') }}:</td>
                                 <td class="py-4 text-right text-xl font-bold text-green-600 dark:text-green-400 print:py-2 print:text-lg">{{ $order->formatted_total }}</td>
                             </tr>
                         </tfoot>
@@ -159,9 +159,9 @@
 
             <!-- Footer -->
             <div class="border-t border-gray-200 dark:border-gray-700 pt-8 mt-8 text-center print:pt-4 print:mt-4">
-                <p class="text-gray-600 dark:text-gray-400 text-sm print:text-xs">Thank you for your business!</p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm print:text-xs">{{ __('app.thank_you_business') }}</p>
                 <p class="text-gray-500 dark:text-gray-500 text-xs mt-2 print:mt-1">
-                    Order ID: {{ $order->id }} | Generated on {{ now()->format('M j, Y g:i A') }}
+                    {{ __('app.order_id') }}: {{ $order->id }} | {{ __('app.generated_on') }} {{ now()->format('M j, Y g:i A') }}
                 </p>
             </div>
         </div>

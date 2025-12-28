@@ -5,13 +5,13 @@
             <div class="bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl p-8 text-white">
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                     <div>
-                        <h1 class="text-3xl font-bold mb-2">Product Catalog</h1>
-                        <p class="text-blue-100 text-lg">Discover our amazing collection of products</p>
+                        <h1 class="text-3xl font-bold mb-2">{{ __('app.product_catalog') }}</h1>
+                        <p class="text-blue-100 text-lg">{{ __('app.discover_collection') }}</p>
                     </div>
                     <div class="mt-6 md:mt-0">
                         <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
                             <div class="text-2xl font-bold">{{ $products->total() }}</div>
-                            <div class="text-blue-100">Total Products</div>
+                            <div class="text-blue-100">{{ __('app.total_products') }}</div>
                         </div>
                     </div>
                 </div>

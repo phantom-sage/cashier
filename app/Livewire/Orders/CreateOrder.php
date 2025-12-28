@@ -122,7 +122,7 @@ class CreateOrder extends Component
     public function checkout()
     {
         if (empty($this->cart)) {
-            session()->flash('error', 'Cart is empty. Please add products before checkout.');
+            session()->flash('error', __('app.cart_empty_error'));
             return;
         }
 
@@ -150,11 +150,11 @@ class CreateOrder extends Component
                 $this->clearCart();
 
                 // Redirect to receipt
-                session()->flash('message', 'Order created successfully!');
+                session()->flash('message', __('app.order_created_success'));
                 return redirect()->route('orders.receipt', $order->id);
             });
         } catch (\Exception $e) {
-            session()->flash('error', 'Failed to create order. Please try again.');
+            session()->flash('error', __('app.order_create_error'));
         }
     }
 

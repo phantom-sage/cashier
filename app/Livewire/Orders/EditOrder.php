@@ -140,7 +140,7 @@ class EditOrder extends Component
     public function updateOrder()
     {
         if (empty($this->cart)) {
-            session()->flash('error', 'Order must have at least one item.');
+            session()->flash('error', __('app.order_must_have_items'));
             return;
         }
 
@@ -166,10 +166,10 @@ class EditOrder extends Component
                 }
             });
 
-            session()->flash('message', 'Order updated successfully!');
+            session()->flash('message', __('app.order_updated_success'));
             return redirect()->route('orders.receipt', $this->order->id);
         } catch (\Exception $e) {
-            session()->flash('error', 'Failed to update order. Please try again.');
+            session()->flash('error', __('app.order_update_error'));
         }
     }
 

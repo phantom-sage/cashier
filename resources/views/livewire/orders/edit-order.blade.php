@@ -16,7 +16,7 @@
                         </div>
                         <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
                             <div class="text-2xl font-bold">{{ $this->getFormattedTotal() }}</div>
-                            <div class="text-orange-100 text-sm">Total Amount</div>
+                            <div class="text-orange-100 text-sm">{{ __('app.total_amount') }}</div>
                         </div>
                     </div>
                 </div>
@@ -206,7 +206,7 @@
                 <div class="space-y-6">
                     <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 sticky top-6">
                         <div class="flex items-center justify-between mb-6">
-                            <h2 class="text-xl font-bold text-gray-900 dark:text-white">Order Items</h2>
+                            <h2 class="text-xl font-bold text-gray-900 dark:text-white">{{ __('app.order_items') }}</h2>
                         </div>
 
                         @if(empty($cart))
@@ -287,7 +287,7 @@
                                     <span class="text-gray-900 dark:text-white font-medium">{{ $this->getFormattedTotal() }}</span>
                                 </div>
                                 <div class="flex justify-between text-lg font-bold">
-                                    <span class="text-gray-900 dark:text-white">Total</span>
+                                    <span class="text-gray-900 dark:text-white">{{ __('app.total') }}</span>
                                     <span class="text-orange-600 dark:text-orange-400">{{ $this->getFormattedTotal() }}</span>
                                 </div>
                             </div>

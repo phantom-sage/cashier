@@ -9,12 +9,12 @@
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                         </svg>
-                        Back to Products
+                        {{ __('app.back_to_products') }}
                     </a>
                 </div>
                 <div class="mt-4">
-                    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Create New Product</h1>
-                    <p class="text-gray-600 dark:text-gray-400 mt-2">Add a new product to your catalog with all the details</p>
+                    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{{ __('app.create_new_product') }}</h1>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">{{ __('app.add_new_product_catalog') }}</p>
                 </div>
             </div>
 
@@ -24,12 +24,12 @@
             <!-- Product Name -->
             <div>
                 <label for="name" class="block text-sm font-semibold text-gray-900 dark:text-white mb-3">
-                    Product Name *
+                    {{ __('app.product_name_required') }}
                 </label>
                 <input wire:model="name" 
                        type="text" 
                        id="name"
-                       placeholder="Enter a descriptive product name"
+                       placeholder="{{ __('app.enter_descriptive_name') }}"
                        class="block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500"
                        required>
                 @error('name') 
@@ -45,12 +45,12 @@
             <!-- Product Description -->
             <div>
                 <label for="description" class="block text-sm font-semibold text-gray-900 dark:text-white mb-3">
-                    Product Description
+                    {{ __('app.product_description_label') }}
                 </label>
                 <textarea wire:model="description" 
                           id="description"
                           rows="4"
-                          placeholder="Describe your product features, benefits, and specifications"
+                          placeholder="{{ __('app.describe_product_features') }}"
                           class="block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 resize-none"></textarea>
                 @error('description') 
                     <p class="mt-2 text-sm text-red-600 dark:text-red-400 flex items-center">
@@ -65,7 +65,7 @@
             <!-- Product Price -->
             <div>
                 <label for="price" class="block text-sm font-semibold text-gray-900 dark:text-white mb-3">
-                    Price *
+                    {{ __('app.price_required') }}
                 </label>
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -93,7 +93,7 @@
             <!-- Product Image -->
             <div>
                 <label class="block text-sm font-semibold text-gray-900 dark:text-white mb-3">
-                    Product Image
+                    {{ __('app.product_image_label') }}
                 </label>
                 <div class="mt-2">
                     <div class="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-xl hover:border-blue-400 transition-colors duration-200 dark:border-gray-600 dark:hover:border-blue-500">
@@ -109,7 +109,7 @@
                             @endif
                             <div class="flex text-sm text-gray-600 dark:text-gray-400">
                                 <label for="image" class="relative cursor-pointer bg-white dark:bg-gray-800 rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
-                                    <span>{{ $image ? 'Change image' : 'Upload an image' }}</span>
+                                    <span>{{ $image ? __('app.change_image') : __('app.upload_image') }}</span>
                                     <input wire:model="image" 
                                            id="image" 
                                            type="file" 
@@ -117,11 +117,11 @@
                                            class="sr-only">
                                 </label>
                                 @if (!$image)
-                                    <p class="pl-1">or drag and drop</p>
+                                    <p class="pl-1">{{ __('app.drag_and_drop') }}</p>
                                 @endif
                             </div>
                             <p class="text-xs text-gray-500 dark:text-gray-400">
-                                PNG, JPG, GIF up to 2MB
+                                {{ __('app.image_formats') }}
                             </p>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
             <div class="flex items-center justify-end space-x-4 pt-6 border-t border-gray-200 dark:border-gray-700">
                 <a href="{{ route('products.index') }}" 
                    class="inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-sm font-medium rounded-xl text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600 transition-colors duration-200">
-                    Cancel
+                    {{ __('app.cancel') }}
                 </a>
                 
                 <button type="submit" 
@@ -148,7 +148,7 @@
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    Create Product
+                    {{ __('app.create_product') }}
                 </button>
             </div>
         </form>

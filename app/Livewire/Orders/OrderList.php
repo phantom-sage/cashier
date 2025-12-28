@@ -14,7 +14,6 @@ class OrderList extends Component
     public string $search = '';
     public bool $loading = false;
     public ?int $orderToDelete = null;
-    public bool $showDeleteModal = false;
 
     protected $queryString = [
         'search' => ['except' => ''],
@@ -34,13 +33,11 @@ class OrderList extends Component
     public function confirmDelete($orderId)
     {
         $this->orderToDelete = $orderId;
-        $this->showDeleteModal = true;
     }
 
     public function cancelDelete()
     {
         $this->orderToDelete = null;
-        $this->showDeleteModal = false;
     }
 
     public function deleteOrder()
@@ -60,12 +57,18 @@ class OrderList extends Component
                 $order->delete();
             });
 
-            session()->flash('message', 'Order deleted successfully.');
-            $this->cancelDelete();
+            // Flash success message
+            session()->flash('message', __('app.order_deleted_success'));
+            
+            // Reset state
+            $this->orderToDelete = null;
+            
+            // Redirect to refresh the page and clear any stale state
+            return redirect()->route('orders.index');
             
         } catch (\Exception $e) {
-            session()->flash('error', 'Failed to delete order. Please try again.');
-            $this->cancelDelete();
+            session()->flash('error', __('app.order_delete_error'));
+            $this->orderToDelete = null;
         }
     }
 

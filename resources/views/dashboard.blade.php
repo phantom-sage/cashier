@@ -14,7 +14,7 @@
                             </svg>
                         </div>
                         <div class="ml-4">
-                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Total Products</p>
+                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400">{{ __('app.total_products') }}</p>
                             <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ \App\Models\Product::count() }}</p>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                             </svg>
                         </div>
                         <div class="ml-4">
-                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Total Orders</p>
+                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400">{{ __('app.total_orders') }}</p>
                             <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ \App\Models\Order::count() }}</p>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                             </svg>
                         </div>
                         <div class="ml-4">
-                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Today's Sales</p>
+                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400">{{ __('app.todays_sales') }}</p>
                             <p class="text-2xl font-bold text-gray-900 dark:text-white">
                                 ${{ number_format(\App\Models\Order::whereDate('created_at', today())->sum('total_amount'), 2) }}
                             </p>
@@ -59,14 +59,14 @@
                 <div class="bg-gradient-to-r from-green-500 to-blue-600 rounded-xl p-8">
                     <div class="flex items-center justify-between">
                         <div>
-                            <h3 class="text-2xl font-bold mb-2">Cashier System</h3>
-                            <p class="text-green-100 mb-6">Create new orders and process sales</p>
+                            <h3 class="text-2xl font-bold mb-2">{{ __('app.cashier_system') }}</h3>
+                            <p class="text-green-100 mb-6">{{ __('app.create_process_sales') }}</p>
                             <a href="{{ route('orders.create') }}" 
                                class="inline-flex items-center px-6 py-3 bg-white text-green-600 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200">
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
                                 </svg>
-                                Start Selling
+                                {{ __('app.start_selling') }}
                             </a>
                         </div>
                         <div class="hidden md:block">
@@ -81,14 +81,14 @@
                 <div class="bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl p-8">
                     <div class="flex items-center justify-between">
                         <div>
-                            <h3 class="text-2xl font-bold mb-2">Product Management</h3>
-                            <p class="text-purple-100 mb-6">Manage your product catalog</p>
+                            <h3 class="text-2xl font-bold mb-2">{{ __('app.product_management') }}</h3>
+                            <p class="text-purple-100 mb-6">{{ __('app.manage_product_catalog') }}</p>
                             <a href="{{ route('products.index') }}" 
                                class="inline-flex items-center px-6 py-3 bg-white text-purple-600 font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200">
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
                                 </svg>
-                                View Products
+                                {{ __('app.view_products') }}
                             </a>
                         </div>
                         <div class="hidden md:block">
