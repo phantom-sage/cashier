@@ -47,7 +47,7 @@ class OrderItem extends Model
      */
     public function getFormattedUnitPriceAttribute(): string
     {
-        return '$' . number_format($this->unit_price, 2);
+        return currency($this->unit_price);
     }
 
     /**
@@ -55,6 +55,6 @@ class OrderItem extends Model
      */
     public function getFormattedSubtotalAttribute(): string
     {
-        return '$' . number_format($this->subtotal, 2);
+        return currency($this->subtotal);
     }
 }

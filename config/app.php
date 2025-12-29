@@ -100,6 +100,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Arabic Numerals
+    |--------------------------------------------------------------------------
+    |
+    | When set to true, Arabic locale will use Arabic-Indic numerals (١٢٣)
+    | instead of Western numerals (123) for currency formatting.
+    |
+    */
+
+    'use_arabic_numerals' => env('USE_ARABIC_NUMERALS', false),
+
+    /*
+    |--------------------------------------------------------------------------
     | Encryption Key
     |--------------------------------------------------------------------------
     |

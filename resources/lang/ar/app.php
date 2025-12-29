@@ -147,6 +147,11 @@ return [
     // General
     'total_amount' => 'المبلغ الإجمالي',
     
+    // Currency
+    'currency' => 'العملة',
+    'sdg' => 'ج.س',
+    'sudanese_pound' => 'الجنيه السوداني',
+    
     // Product Actions & Messages
     'back_to_products' => 'العودة للمنتجات',
     'delete_product' => 'حذف المنتج',

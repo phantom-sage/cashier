@@ -13,6 +13,8 @@ class ProductList extends Component
     public string $search = '';
     public bool $loading = false;
 
+    protected $listeners = ['currencyChanged' => '$refresh'];
+
     protected $queryString = [
         'search' => ['except' => ''],
     ];

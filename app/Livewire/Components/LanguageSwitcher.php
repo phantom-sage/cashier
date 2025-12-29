@@ -31,9 +31,10 @@ class LanguageSwitcher extends Component
 
         // Dispatch event to refresh other components
         $this->dispatch('localeChanged', locale: $locale);
+        $this->dispatch('currencyChanged', locale: $locale);
 
-        // Redirect to refresh the page with new locale
-        return redirect()->to(request()->fullUrl());
+        // Use JavaScript to refresh the page instead of Laravel redirect
+        $this->js('window.location.reload()');
     }
 
     public function render()

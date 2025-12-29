@@ -15,6 +15,8 @@ class OrderList extends Component
     public bool $loading = false;
     public ?int $orderToDelete = null;
 
+    protected $listeners = ['currencyChanged' => '$refresh'];
+
     protected $queryString = [
         'search' => ['except' => ''],
     ];

@@ -46,7 +46,7 @@
                         <div class="ml-4">
                             <p class="text-sm font-medium text-gray-600 dark:text-gray-400">{{ __('app.todays_sales') }}</p>
                             <p class="text-2xl font-bold text-gray-900 dark:text-white">
-                                ${{ number_format(\App\Models\Order::whereDate('created_at', today())->sum('total_amount'), 2) }}
+                                {{ currency(\App\Models\Order::whereDate('created_at', today())->sum('total_amount')) }}
                             </p>
                         </div>
                     </div>

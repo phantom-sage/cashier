@@ -147,6 +147,11 @@ return [
     // General
     'total_amount' => 'Total Amount',
     
+    // Currency
+    'currency' => 'Currency',
+    'sdg' => 'SDG',
+    'sudanese_pound' => 'Sudanese Pound',
+    
     // Product Actions & Messages
     'back_to_products' => 'Back to Products',
     'delete_product' => 'Delete Product',

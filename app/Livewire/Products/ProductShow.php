@@ -9,6 +9,8 @@ class ProductShow extends Component
 {
     public Product $product;
 
+    protected $listeners = ['currencyChanged' => '$refresh'];
+
     public function mount($id)
     {
         $this->product = Product::findOrFail($id);

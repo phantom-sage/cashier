@@ -9,6 +9,8 @@ class OrderReceipt extends Component
 {
     public Order $order;
 
+    protected $listeners = ['currencyChanged' => '$refresh'];
+
     public function mount($id)
     {
         $this->order = Order::with(['orderItems.product', 'user'])

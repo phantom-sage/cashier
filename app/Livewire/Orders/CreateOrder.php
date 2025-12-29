@@ -17,6 +17,8 @@ class CreateOrder extends Component
     public array $cart = [];
     public bool $loading = false;
 
+    protected $listeners = ['currencyChanged' => '$refresh'];
+
     protected $queryString = [
         'search' => ['except' => ''],
     ];
@@ -106,7 +108,7 @@ class CreateOrder extends Component
 
     public function getFormattedTotal()
     {
-        return '$' . number_format($this->getTotalAmount(), 2);
+        return currency($this->getTotalAmount());
     }
 
     public function getTotalItems()
